@@ -64,6 +64,13 @@ yum install -y \
 # esd0
 # libudev-dev / udev-devel; udev itself is available
 # ibus-1.0
+git clone https://github.com/ibus/ibus
+cd ibus/tools
+make
+cd ..
+# /usr/local/include
+# /usr/local/lib
+# ibus end
 # fcitx-libs
 
 # Make SDL2 packages
