@@ -54,11 +54,6 @@ yum install -y \
     ffmpeg-devel \
     smpeg-devel
 
-echo "----------------------"
-yum provides "*/ibus*"
-yum search "*/ibus*"
-yum search ibus
-echo "----------------------"
 # https://hg.libsdl.org/SDL/file/default/docs/README-linux.md#l18
 # not available, need to make *-dev pacckages
 # swscale
@@ -70,9 +65,9 @@ echo "----------------------"
 # libudev-dev / udev-devel; udev itself is available
 # ibus-1.0
 git clone https://github.com/ibus/ibus
-cd ibus/tools
-make
-cd ..
+cd ibus/src
+libtool --mode=install
+cd ../..
 # /usr/local/include
 # /usr/local/lib
 # ibus end
