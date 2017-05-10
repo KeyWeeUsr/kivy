@@ -65,7 +65,11 @@ yum install -y \
 # libudev-dev / udev-devel; udev itself is available
 # ibus-1.0
 git clone https://github.com/ibus/ibus
-cd ibus/src
+cd ibus
+autoconf
+cd src
+automake
+ls .
 libtool --mode=install
 cd ../..
 # /usr/local/include
