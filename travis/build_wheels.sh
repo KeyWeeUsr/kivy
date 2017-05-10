@@ -54,6 +54,11 @@ yum install -y \
     ffmpeg-devel \
     smpeg-devel
 
+echo "----------------------"
+yum provides "*/ibus*"
+yum search "*/ibus*"
+yum search ibus
+echo "----------------------"
 # https://hg.libsdl.org/SDL/file/default/docs/README-linux.md#l18
 # not available, need to make *-dev pacckages
 # swscale
