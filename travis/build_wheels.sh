@@ -115,14 +115,6 @@ yum install -y \
     openssl-devel
 # ok ok no ok ok ok no ok ok ok
 
-# GStreamer
-# gstreamer1.0-alsa is in gstreamer1-plugins-base
-yum install -y \
-    gstreamer1-devel \
-    gstreamer1-plugins-base \
-    gstreamer1-plugins-base-devel
-# ok ok ok
-
 
 # Make SDL2 packages
 # ldconfig to make the libraries visible!
@@ -221,7 +213,7 @@ wget https://gstreamer.freedesktop.org/src/gst-plugins-good/${GOOD}.tar.xz
 wget https://gstreamer.freedesktop.org/src/gst-plugins-base/${BASE}.tar.xz
 
 # GStreamer
-tar xzf ${GSTR}.tar.xz
+tar -xJf ${GSTR}.tar.xz
 pushd $GSTR
 ./configure --disable-rpath
 make
@@ -230,7 +222,7 @@ ldconfig -v
 popd
 
 # GStreamer plugins base
-tar xzf ${BASE}.tar.xz
+tar -xJf ${BASE}.tar.xz
 pushd $BASE
 ./configure --disable-rpath
 make
@@ -239,7 +231,7 @@ ldconfig -v
 popd
 
 # GStreamer plugins good
-tar xzf ${GOOD}.tar.xz
+tar -xJf ${GOOD}.tar.xz
 pushd $GOOD
 ./configure --disable-rpath
 make
