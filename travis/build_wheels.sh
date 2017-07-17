@@ -212,6 +212,41 @@ ldconfig -v
 popd
 # end SDL2
 
+# Make GStreamer packages
+GSTR="gstreamer-1.12.2"
+GOOD="gst-plugins-good-1.12.2"
+BASE="gst-plugins-base-1.12.2"
+wget https://gstreamer.freedesktop.org/src/gstreamer/${GSTR}.tar.xz
+wget https://gstreamer.freedesktop.org/src/gst-plugins-good/${GOOD}.tar.xz
+wget https://gstreamer.freedesktop.org/src/gst-plugins-base/${BASE}.tar.xz
+
+# GStreamer
+tar xzf ${GSTR}.tar.gz
+pushd $GSTR
+./configure --disable-rpath
+make
+make install
+ldconfig -v
+popd
+
+# GStreamer plugins base
+tar xzf ${BASE}.tar.gz
+pushd $BASE
+./configure --disable-rpath
+make
+make install
+ldconfig -v
+popd
+
+# GStreamer plugins good
+tar xzf ${GOOD}.tar.gz
+pushd $GOOD
+./configure --disable-rpath
+make
+make install
+ldconfig -v
+popd
+# end GStreamer
 
 PYTHONS="cp27-cp27mu cp34-cp34m cp35-cp35m cp36-cp36m"
 mkdir libless_wheelhouse
