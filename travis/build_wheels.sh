@@ -221,7 +221,7 @@ wget https://gstreamer.freedesktop.org/src/gst-plugins-good/${GOOD}.tar.xz
 wget https://gstreamer.freedesktop.org/src/gst-plugins-base/${BASE}.tar.xz
 
 # GStreamer
-tar xzf ${GSTR}.tar.gz
+tar xzf ${GSTR}.tar.xz
 pushd $GSTR
 ./configure --disable-rpath
 make
@@ -230,7 +230,7 @@ ldconfig -v
 popd
 
 # GStreamer plugins base
-tar xzf ${BASE}.tar.gz
+tar xzf ${BASE}.tar.xz
 pushd $BASE
 ./configure --disable-rpath
 make
@@ -239,7 +239,7 @@ ldconfig -v
 popd
 
 # GStreamer plugins good
-tar xzf ${GOOD}.tar.gz
+tar xzf ${GOOD}.tar.xz
 pushd $GOOD
 ./configure --disable-rpath
 make
