@@ -83,6 +83,8 @@ class Test(GraphicUnitTest):
     def clean_garbage(self, *args):
         for child in self._win.children[:]:
             self._win.remove_widget(child)
+        EventLoop.idle()
+        EventLoop.idle()
 
     def check_dropdown(self, present=True):
         any_list = [
