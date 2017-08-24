@@ -80,6 +80,10 @@ class TouchPoint(UTMotionEvent):
 class Test(GraphicUnitTest):
     framecount = 0
 
+    def clean_garbage(self, *args):
+        for child in self._win.children[:]:
+            self._win.remove_widget(child)
+
     def check_dropdown(self, present=True):
         any_list = [
             isinstance(child, DropDown)
@@ -108,6 +112,7 @@ class Test(GraphicUnitTest):
         # then click away
         # - Group 1 DropDown disappears
         self._win = EventLoop.window
+        self.clean_garbage()
         root = Builder.load_string(KV)
         self.render(root)
         self.assertLess(len(self._win.children), 2)
@@ -161,6 +166,7 @@ class Test(GraphicUnitTest):
         # click away
         # - no DropDown is opened
         self._win = EventLoop.window
+        self.clean_garbage()
         root = Builder.load_string(KV)
         self.render(root)
         self.assertLess(len(self._win.children), 2)
@@ -228,6 +234,7 @@ class Test(GraphicUnitTest):
         # then click on Group 1 DropDown button
         # - DropDown disappears
         self._win = EventLoop.window
+        self.clean_garbage()
         root = Builder.load_string(KV)
         self.render(root)
         self.assertLess(len(self._win.children), 2)
@@ -289,6 +296,7 @@ class Test(GraphicUnitTest):
         # - DropDown disappears
         # repeat
         self._win = EventLoop.window
+        self.clean_garbage()
         root = Builder.load_string(KV)
         self.render(root)
         self.assertLess(len(self._win.children), 2)
