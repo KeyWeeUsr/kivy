@@ -1,4 +1,5 @@
 import unittest
+import traceback
 
 
 class ClipboardTestCase(unittest.TestCase):
@@ -24,6 +25,7 @@ class ClipboardTestCase(unittest.TestCase):
         except:
             self.fail(
                 'Can not get data from clipboard')
+            traceback.print_exc()
 
     def test_clipboard_copy(self):
         clippy = self._clippy
@@ -32,3 +34,4 @@ class ClipboardTestCase(unittest.TestCase):
         except:
             self.fail(
                 'Can not get put data to clipboard')
+            traceback.print_exc()
