@@ -22,16 +22,18 @@ class ClipboardTestCase(unittest.TestCase):
         clippy = self._clippy
         try:
             clippy.paste()
-        except:
+        except Exception as e:
             self.fail(
-                'Can not get data from clipboard')
-            traceback.print_exc()
+                'Can not get data from clipboard\n'
+                '{}'.format(repr(e))
+            )
 
     def test_clipboard_copy(self):
         clippy = self._clippy
         try:
             clippy.copy(u"Hello World")
-        except:
+        except Exception as e:
             self.fail(
-                'Can not get put data to clipboard')
-            traceback.print_exc()
+                'Can not get data from clipboard\n'
+                '{}'.format(repr(e))
+            )
